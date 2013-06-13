@@ -1,0 +1,101 @@
+=pod
+
+=encoding utf-8
+
+=head1 NAME
+
+MooseX::Types::UKPostcode - Moose types for Geo::UK::Postcode objects
+
+=head1 VERSION
+
+version 0.001
+
+=head1 SYNOPSIS
+
+    package MyClass;
+    use Moose;
+    use MooseX::Types::UKPostcode qw/ UKPostcode PartialUKPostcode /;
+    use namespace::autoclean;
+    
+    has postcode => ( isa => UKPostcode, required => 1, is => 'ro' );
+    has outcode  => ( isa => PartialUKPostcode, required => 1, is => 'ro' );
+
+=head1 DESCRIPTION
+
+Moose types for using L<Geo::UK::Postcode> objects as attributes, with the
+associated validation and coercion from strings.
+
+Various levels of 'strictness' are available - 'lax' which just expects
+something that looks like a British postcode, 'strict' (the default) which
+checks there are no invalid characters, and 'valid' which must have a
+real outcode.
+
+Partial postcodes are supported - these are either an outcode (area and
+district), e.g. 'SE1' or 'AB10', or an outcode and postcode sector (area,
+district and sector), e.g. 'SE1 0' or 'AB10 1'.
+
+For more details on parsing, validity, outcodes, etc, please see
+L<Geo::UK::Postcode>.
+
+=head1 NAME
+
+MooseX::Types::UKPostcode
+
+=head1 TYPES
+
+=head2 UKPostcode
+
+=head2 UKPostcodeLax
+
+=head2 UKPostcodeValid
+
+=head2 PartialUKPostcode
+
+=head2 PartialUKPostcodeLax
+
+=head2 PartialUKPostcodeValid
+
+=head1 TODO
+
+Just validation, no objects
+
+=head1 SEE ALSO
+
+=over
+
+=item *
+
+L<Geo::UK::Postcode>
+
+=back
+
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
+
+=head1 SUPPORT
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests through the issue tracker
+at L<https://github.com/mjemmeson/moosex-types-ukpostcode/issues>.
+You will be notified automatically of any progress on your issue.
+
+=head2 Source Code
+
+This is open source software.  The code repository is available for
+public review and contribution under the terms of the license.
+
+L<https://github.com/mjemmeson/moosex-types-ukpostcode>
+
+  git clone git://github.com/mjemmeson/moosex-types-ukpostcode.git
+
+=head1 AUTHOR
+
+Michael Jemmeson <mjemmeson@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Michael Jemmeson <mjemmeson@cpan.org>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+

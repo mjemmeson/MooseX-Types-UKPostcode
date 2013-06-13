@@ -1,7 +1,6 @@
 # ukpostcode.t
 
 use Test::Most;
-use Test::Fatal;
 
 use MooseX::Types::UKPostcode qw/
     UKPostcode UKPostcodeLax UKPostcodeValid
